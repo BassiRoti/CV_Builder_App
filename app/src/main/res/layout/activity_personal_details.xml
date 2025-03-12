@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black"
+    tools:context=".PersonalDetails">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_full_name"
+        android:id="@+id/user_name_id"
+        android:layout_marginHorizontal="65dp"
+        android:inputType="text"
+        android:textColorHint="@color/white"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/white">
+    </EditText>
+<!--    <View-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:background="@color/white"-->
+<!--        android:layout_marginVertical="10dp"-->
+<!--        >-->
+
+<!--    </View>-->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:layout_marginHorizontal="65dp"
+        android:id="@+id/user_dob_id"
+        android:hint="@string/enter_date_of_birth"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:backgroundTint="@color/white"
+        android:layout_marginTop="5dp"
+        >
+    </EditText>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:hint="@string/enter_email"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:layout_marginHorizontal="65dp"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:id="@+id/user_email_id">
+
+    </EditText>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:hint="@string/enter_phone_number"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:layout_marginHorizontal="65dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:id="@+id/user_phone_id">
+    </EditText>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/select_gender"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="20sp">
+
+    </TextView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="65dp"
+            android:gravity="center"
+            android:id="@+id/gender_grp_id"
+            >
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/gender_option_1"
+                android:text="@string/male"
+                android:textColor="@color/white"
+                >
+            </RadioButton>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/gender_option_2"
+                android:text="@string/female"
+                android:textColor="@color/white"
+                >
+            </RadioButton>
+        </RadioGroup>
+    </RelativeLayout>
+
+    <!--wanted to use relative for gender options to appear in one line but is not working -->
+
+
+
+
+</LinearLayout>
