@@ -22,6 +22,8 @@ public class HomeActivity extends AppCompatActivity {
     ActivityResultLauncher<Intent> details;
     ActivityResultLauncher<Intent> user_summary;
 
+    ActivityResultLauncher<Intent> education;
+
     private void init(){
         pp=findViewById(R.id.profile_pic_id);
         pd=findViewById(R.id.personal_details_id);
@@ -104,6 +106,28 @@ public class HomeActivity extends AppCompatActivity {
             }
             else{
                 Toast.makeText(this, "Error Getting Summary", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        ed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(HomeActivity.this, Education.class);
+                education.launch(i);
+            }
+        });
+
+        education=registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),(result)->{
+            if(result.getResultCode()==RESULT_OK && result.getData()!=null){
+                Intent getdata=result.getData();
+                String degree_name=getdata.getStringExtra("degree");
+                String institution_name=getdata.getStringExtra("institution");
+                String degree_year=getdata.getStringExtra("year");
+
+                //fetched user education
+            }
+            else{
+                Toast.makeText(this, "Error Getting Education", Toast.LENGTH_SHORT).show();
             }
         });
 
