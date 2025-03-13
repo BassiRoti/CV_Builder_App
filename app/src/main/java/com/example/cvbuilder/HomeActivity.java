@@ -24,6 +24,10 @@ public class HomeActivity extends AppCompatActivity {
 
     ActivityResultLauncher<Intent> education;
 
+    ActivityResultLauncher<Intent> experience;
+
+    ActivityResultLauncher<Intent> certifications;
+
     private void init(){
         pp=findViewById(R.id.profile_pic_id);
         pd=findViewById(R.id.personal_details_id);
@@ -130,6 +134,52 @@ public class HomeActivity extends AppCompatActivity {
                 Toast.makeText(this, "Error Getting Education", Toast.LENGTH_SHORT).show();
             }
         });
+
+        exp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(HomeActivity.this, Experience.class);
+                experience.launch(i);
+            }
+        });
+
+        experience=registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),(result)->{
+            if(result.getResultCode()==RESULT_OK && result.getData()!=null){
+                Intent getdata=result.getData();
+                String company_title=getdata.getStringExtra("title");
+                String company=getdata.getStringExtra("company");
+                String company_duration=getdata.getStringExtra("duration");
+                String desc=getdata.getStringExtra("desc");
+
+                //fetched user experience
+            }
+            else{
+                Toast.makeText(this, "Error Getting Experience", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        cert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(HomeActivity.this, Certifications.class);
+                certifications.launch(i);
+            }
+        });
+
+        certifications=registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),(result)->{
+            if(result.getResultCode()==RESULT_OK && result.getData()!=null){
+                Intent getdata=result.getData();
+                String certs=getdata.getStringExtra("certifications");
+
+                //fetched user certifications
+            }
+            else{
+                Toast.makeText(this, "Error Getting Certifications", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
 
     }
 }

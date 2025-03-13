@@ -22,4 +22,11 @@
     <string name="enter_institution">Enter Institution</string>
     <string name="enter_degree">Enter Degree</string>
     <string name="enter_year_of_completion">Enter Year of Completion</string>
+    <string name="enter_job_title">Enter Job Title</string>
+    <string name="enter_company_name">Enter Company Name</string>
+    <string name="duration_e_g_jan_2022_dec_2022">Duration (e.g., Jan 2022 - Dec 2022)</string>
+    <string name="enter_job_description">Enter Job Description</string>
+    <string name="enter_your_cercitications_here_with_valid_id_s">Enter your Certifications here with valid id\'s</string>
+    <string name="google_developer_certification">Google Developer Certification</string>
+    <string name="google_developer_certification_88985">Google Developer Certification 88985</string>
 </resources>
