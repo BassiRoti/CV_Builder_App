@@ -28,6 +28,8 @@ public class HomeActivity extends AppCompatActivity {
 
     ActivityResultLauncher<Intent> certifications;
 
+    ActivityResultLauncher<Intent> references;
+
     private void init(){
         pp=findViewById(R.id.profile_pic_id);
         pd=findViewById(R.id.personal_details_id);
@@ -65,7 +67,7 @@ public class HomeActivity extends AppCompatActivity {
                 //need to set image
             }
             else{
-                Toast.makeText(this, "Error Uploading Image", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Operation Cancelled", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -88,7 +90,7 @@ public class HomeActivity extends AppCompatActivity {
 
            }
            else{
-               Toast.makeText(this, "Error Getting Personal Details", Toast.LENGTH_SHORT).show();
+               Toast.makeText(this, "Operation Cancelled", Toast.LENGTH_SHORT).show();
            }
         });
 
@@ -109,7 +111,7 @@ public class HomeActivity extends AppCompatActivity {
 
             }
             else{
-                Toast.makeText(this, "Error Getting Summary", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Operation Cancelled", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -131,7 +133,7 @@ public class HomeActivity extends AppCompatActivity {
                 //fetched user education
             }
             else{
-                Toast.makeText(this, "Error Getting Education", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Operation Cancelled", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -154,7 +156,7 @@ public class HomeActivity extends AppCompatActivity {
                 //fetched user experience
             }
             else{
-                Toast.makeText(this, "Error Getting Experience", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Operation Cancelled", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -174,9 +176,30 @@ public class HomeActivity extends AppCompatActivity {
                 //fetched user certifications
             }
             else{
-                Toast.makeText(this, "Error Getting Certifications", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Operation Cancelled", Toast.LENGTH_SHORT).show();
             }
         });
+
+        ref.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(HomeActivity.this, References.class);
+                references.launch(i);
+            }
+        });
+
+        references=registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),(result)->{
+            if(result.getResultCode()==RESULT_OK && result.getData()!=null){
+                Intent getdata=result.getData();
+                String certs=getdata.getStringExtra("ref");
+
+                //fetched user references
+            }
+            else{
+                Toast.makeText(this, "Operation Cancelled", Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
 
 

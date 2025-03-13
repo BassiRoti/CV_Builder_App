@@ -7,16 +7,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/black"
-    android:paddingTop="20dp"
-    tools:context=".Certifications">
+    tools:context=".References">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/enter_your_cercitications_here_with_valid_id_s"
+        android:text="@string/enter_your_references_with_details"
         android:textSize="20dp"
         android:gravity="center"
-
         android:textColor="@color/white"
         android:textStyle="bold"
 
@@ -30,9 +28,10 @@
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:paddingHorizontal="20dp"
-        android:id="@+id/certifications"
+        android:id="@+id/references"
         android:paddingTop="20dp"
-        android:hint="@string/google_developer_certification_88985"
+        android:gravity="center"
+        android:hint="abc 123456789"
 
         >
 
@@ -51,7 +50,7 @@
             android:text="@string/submit"
             android:backgroundTint="#950F0F"
             android:layout_marginTop="10dp"
-            android:id="@+id/cert_submit"
+            android:id="@+id/ref_submit"
             >
         </Button>
 
@@ -62,8 +61,8 @@
             android:backgroundTint="#950F0F"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:id="@+id/cert_clear"
-            android:layout_toRightOf="@id/cert_submit"
+            android:id="@+id/ref_clear"
+            android:layout_toRightOf="@id/ref_submit"
             android:layout_marginHorizontal="10dp"
             >
 
@@ -72,8 +71,6 @@
 
 
     </RelativeLayout>
-
-
 
 
 </LinearLayout>
