@@ -78,11 +78,33 @@ public class HomeActivity extends AppCompatActivity {
                String User_dob=getdata.getStringExtra("User_dob");
                String UserEmail=getdata.getStringExtra("UserEmail");
                String UserNumber=getdata.getStringExtra("UserNumber");
+               //fetched user details
 
            }
            else{
                Toast.makeText(this, "Error Getting Personal Details", Toast.LENGTH_SHORT).show();
            }
+        });
+
+        s.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(HomeActivity.this, Summary.class);
+                user_summary.launch(i);
+            }
+        });
+
+        user_summary=registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),(result)->{
+            if(result.getResultCode()==RESULT_OK && result.getData()!=null){
+                Intent getdata=result.getData();
+                String user_summary_Data=getdata.getStringExtra("summ");
+                //fetched user summary
+
+
+            }
+            else{
+                Toast.makeText(this, "Error Getting Summary", Toast.LENGTH_SHORT).show();
+            }
         });
 
     }

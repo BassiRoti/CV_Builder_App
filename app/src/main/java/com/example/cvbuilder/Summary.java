@@ -1,6 +1,8 @@
 package com.example.cvbuilder;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -30,6 +32,26 @@ public class Summary extends AppCompatActivity {
         });
 
         init();
+        String summary_data=summary.getText().toString().trim();
+        Intent i=new Intent();
+        i.putExtra("summ",summary_data);
+
+        submit_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setResult(RESULT_OK,i);
+                finish();
+            }
+        });
+
+        clear_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setResult(RESULT_CANCELED);
+                finish();
+            }
+        });
+
 
 
     }
