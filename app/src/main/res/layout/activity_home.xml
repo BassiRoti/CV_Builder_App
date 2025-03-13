@@ -101,6 +101,23 @@
         </Button>
 
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/submit"
+            android:backgroundTint="#950F0F"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="17dp"
+            android:id="@+id/final_submit"
+            android:paddingVertical="15dp"
+            android:layout_marginHorizontal="80dp"
+            android:layout_marginVertical="10dp"
+            >
+        </Button>
+
+
+
 
 
         

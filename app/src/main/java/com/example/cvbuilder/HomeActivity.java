@@ -18,6 +18,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class HomeActivity extends AppCompatActivity {
     Button pp,pd,s,ed,exp,cert,ref;
+    Button final_submit;
     ActivityResultLauncher<Intent> profile_pic;
     ActivityResultLauncher<Intent> details;
     ActivityResultLauncher<Intent> user_summary;
@@ -38,6 +39,7 @@ public class HomeActivity extends AppCompatActivity {
         exp=findViewById(R.id.experience_id);
         cert=findViewById(R.id.certifications_id);
         ref=findViewById(R.id.references_id);
+        final_submit=findViewById(R.id.final_submit);
     }
 
     @Override
@@ -52,6 +54,7 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         init();
+        Intent transition=new Intent(this, Preview.class);
         pp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,6 +67,7 @@ public class HomeActivity extends AppCompatActivity {
         profile_pic=registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),(result)->{
             if(result.getResultCode()==RESULT_OK && result.getData()!=null){
                 Uri image=result.getData().getData();
+                transition.putExtra("image",image.toString());
                 //need to set image
             }
             else{
@@ -88,6 +92,11 @@ public class HomeActivity extends AppCompatActivity {
                String UserNumber=getdata.getStringExtra("UserNumber");
                //fetched user details
 
+               transition.putExtra("UserName",UserName);
+               transition.putExtra("User_dob",User_dob);
+               transition.putExtra("UserEmail",UserEmail);
+               transition.putExtra("UserNumber",UserNumber);
+
            }
            else{
                Toast.makeText(this, "Operation Cancelled", Toast.LENGTH_SHORT).show();
@@ -106,6 +115,8 @@ public class HomeActivity extends AppCompatActivity {
             if(result.getResultCode()==RESULT_OK && result.getData()!=null){
                 Intent getdata=result.getData();
                 String user_summary_Data=getdata.getStringExtra("summ");
+
+                transition.putExtra("user_summary_data",user_summary_Data);
                 //fetched user summary
 
 
@@ -130,6 +141,9 @@ public class HomeActivity extends AppCompatActivity {
                 String institution_name=getdata.getStringExtra("institution");
                 String degree_year=getdata.getStringExtra("year");
 
+                transition.putExtra("degree_name",degree_name);
+                transition.putExtra("institution_name",institution_name);
+                transition.putExtra("degree_year",degree_year);
                 //fetched user education
             }
             else{
@@ -153,6 +167,10 @@ public class HomeActivity extends AppCompatActivity {
                 String company_duration=getdata.getStringExtra("duration");
                 String desc=getdata.getStringExtra("desc");
 
+                transition.putExtra("company_title",company_title);
+                transition.putExtra("company",company);
+                transition.putExtra("company_duration",company_duration);
+                transition.putExtra("desc",desc);
                 //fetched user experience
             }
             else{
@@ -173,6 +191,7 @@ public class HomeActivity extends AppCompatActivity {
                 Intent getdata=result.getData();
                 String certs=getdata.getStringExtra("certifications");
 
+                transition.putExtra("certs",certs);
                 //fetched user certifications
             }
             else{
@@ -191,12 +210,21 @@ public class HomeActivity extends AppCompatActivity {
         references=registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),(result)->{
             if(result.getResultCode()==RESULT_OK && result.getData()!=null){
                 Intent getdata=result.getData();
-                String certs=getdata.getStringExtra("ref");
+                String refs=getdata.getStringExtra("ref");
 
+                transition.putExtra("refs",refs);
                 //fetched user references
             }
             else{
                 Toast.makeText(this, "Operation Cancelled", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        final_submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(transition);
+                finish();
             }
         });
 
