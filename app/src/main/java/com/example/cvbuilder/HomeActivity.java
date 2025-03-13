@@ -20,6 +20,7 @@ public class HomeActivity extends AppCompatActivity {
     Button pp,pd,s,ed,exp,cert,ref;
     ActivityResultLauncher<Intent> profile_pic;
     ActivityResultLauncher<Intent> details;
+    ActivityResultLauncher<Intent> user_summary;
 
     private void init(){
         pp=findViewById(R.id.profile_pic_id);
@@ -72,11 +73,17 @@ public class HomeActivity extends AppCompatActivity {
 
         details=registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),(result)->{
            if(result.getResultCode()==RESULT_OK && result.getData()!=null){
+               Intent getdata=result.getData();
+               String UserName=getdata.getStringExtra("UserName");
+               String User_dob=getdata.getStringExtra("User_dob");
+               String UserEmail=getdata.getStringExtra("UserEmail");
+               String UserNumber=getdata.getStringExtra("UserNumber");
 
            }
            else{
                Toast.makeText(this, "Error Getting Personal Details", Toast.LENGTH_SHORT).show();
            }
         });
+
     }
 }

@@ -16,4 +16,7 @@
     <string name="enter_email">Enter Email</string>
     <string name="enter_phone_numbxer">Enter Phone Numbxer</string>
     <string name="enter_phone_number">Enter Phone Number</string>
+    <string name="submit">Submit</string>
+    <string name="cancel">Cancel</string>
+    <string name="write_a_bit_about_yourself">Write a bit about yourself</string>
 </resources>

@@ -20,6 +20,7 @@
         android:gravity="center"
         android:textColor="@color/white"
         android:layout_marginTop="30dp"
+        android:minHeight="48dp"
         android:backgroundTint="@color/white">
     </EditText>
 <!--    <View-->
@@ -41,6 +42,7 @@
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:backgroundTint="@color/white"
+        android:minHeight="48dp"
         android:layout_marginTop="5dp"
         >
     </EditText>
@@ -56,6 +58,7 @@
         android:layout_marginHorizontal="65dp"
         android:gravity="center"
         android:layout_marginTop="10dp"
+        android:minHeight="48dp"
         android:id="@+id/user_email_id">
 
     </EditText>
@@ -70,6 +73,7 @@
         android:layout_marginHorizontal="65dp"
         android:layout_marginTop="10dp"
         android:gravity="center"
+        android:minHeight="48dp"
         android:id="@+id/user_phone_id">
     </EditText>
 
@@ -119,6 +123,41 @@
     </RelativeLayout>
 
     <!--wanted to use relative for gender options to appear in one line but is not working -->
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp">
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"
+        android:backgroundTint="#950F0F"
+        android:layout_marginTop="10dp"
+        android:id="@+id/submit"
+        >
+    </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            android:backgroundTint="#950F0F"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:id="@+id/clear"
+            android:layout_toRightOf="@id/submit"
+            android:layout_marginHorizontal="10dp"
+            >
+
+        </Button>
+
+
+
+    </RelativeLayout>
 
 
 
