@@ -20,17 +20,20 @@ import androidx.core.view.WindowInsetsCompat;
 public class HomeActivity extends AppCompatActivity {
     Button pp,pd,s,ed,exp,cert,ref;
     Button final_submit;
+
     ActivityResultLauncher<Intent> profile_pic;
     ActivityResultLauncher<Intent> details;
     ActivityResultLauncher<Intent> user_summary;
-
     ActivityResultLauncher<Intent> education;
-
     ActivityResultLauncher<Intent> experience;
-
     ActivityResultLauncher<Intent> certifications;
-
     ActivityResultLauncher<Intent> references;
+
+    Boolean user_pic;
+    Boolean user_details;
+    Boolean user_sum;
+    Boolean user_ed;
+
 
     private void init(){
         pp=findViewById(R.id.profile_pic_id);
@@ -41,6 +44,10 @@ public class HomeActivity extends AppCompatActivity {
         cert=findViewById(R.id.certifications_id);
         ref=findViewById(R.id.references_id);
         final_submit=findViewById(R.id.final_submit);
+        user_pic=false;
+        user_details=false;
+        user_sum=false;
+        user_ed=false;
     }
 
     @Override
@@ -69,10 +76,12 @@ public class HomeActivity extends AppCompatActivity {
             if(result.getResultCode()==RESULT_OK && result.getData()!=null){
                 Uri image=result.getData().getData();
                 transition.putExtra("image",image.toString());
+                user_pic=true;
                 //need to set image
             }
             else{
-                Toast.makeText(this, "Operation Cancelled", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Kindly Upload Image", Toast.LENGTH_SHORT).show();
+                return;
             }
         });
 
@@ -105,6 +114,7 @@ public class HomeActivity extends AppCompatActivity {
                Log.d("DEBUG", "User_dob: " + User_dob);
                Log.d("DEBUG", "UserEmail: " + UserEmail);
                Log.d("DEBUG", "UserNumber: " + UserNumber);
+               user_details=true;
 
            }
            else{
@@ -126,6 +136,7 @@ public class HomeActivity extends AppCompatActivity {
                 String user_summary_Data=getdata.getStringExtra("summ");
 
                 transition.putExtra("user_summary_data",user_summary_Data);
+                user_sum=true;
                 //fetched user summary
 
 
@@ -153,6 +164,7 @@ public class HomeActivity extends AppCompatActivity {
                 transition.putExtra("degree_name",degree_name);
                 transition.putExtra("institution_name",institution_name);
                 transition.putExtra("degree_year",degree_year);
+                user_ed=true;
                 //fetched user education
             }
             else{
@@ -233,6 +245,26 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("DEBUG", "Intent Data: " + transition.getExtras());
+                if(user_pic.equals(false) && user_details.equals(false) && user_summary.equals(false) && user_ed.equals(false)){
+                    Toast.makeText(HomeActivity.this, "Kindly add all necessary details", Toast.LENGTH_SHORT).show();
+                }
+                if(user_pic.equals(false)){
+                    Toast.makeText(HomeActivity.this, "Kindly Upload Image", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(user_details.equals(false)){
+                    Toast.makeText(HomeActivity.this, "Kindly add Personal Details", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(user_summary.equals(false)){
+                    Toast.makeText(HomeActivity.this, "Kindly add summary", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if(user_ed.equals(false)){
+                    Toast.makeText(HomeActivity.this, "Kindly add Education", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 startActivity(transition);
                 finish();
             }
