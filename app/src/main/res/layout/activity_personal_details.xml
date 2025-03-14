@@ -37,7 +37,7 @@
         android:inputType="date"
         android:layout_marginHorizontal="65dp"
         android:id="@+id/user_dob_id"
-        android:hint="@string/enter_date_of_birth"
+        android:hint="@string/enter_birth_year"
         android:gravity="center"
         android:textColor="@color/white"
         android:textColorHint="@color/white"

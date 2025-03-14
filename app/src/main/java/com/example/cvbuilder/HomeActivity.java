@@ -102,7 +102,7 @@ public class HomeActivity extends AppCompatActivity {
                String UserNumber=getdata.getStringExtra("UserNumber");
                String UserGender=getdata.getStringExtra("Gender");
                //fetched user details
-               Toast.makeText(this, "Passing data", Toast.LENGTH_SHORT).show();
+//               Toast.makeText(this, "Passing data", Toast.LENGTH_SHORT).show();
 
                transition.putExtra("UserName",UserName);
                transition.putExtra("User_dob",User_dob);

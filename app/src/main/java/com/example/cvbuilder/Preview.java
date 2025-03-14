@@ -16,7 +16,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class Preview extends AppCompatActivity {
     ImageView img;
-    TextView name, email, phone, dobb,genderr;
+    TextView name, email, phone, dobb,genderr, summary, degree, institute, degreeyear, ref;
+    TextView jobtitle,jobcompany, jobduration, jobdesc, certs;
 
     private void init(){
         img=findViewById(R.id.user_profile);
@@ -25,6 +26,18 @@ public class Preview extends AppCompatActivity {
         phone=findViewById(R.id.setnumber);
         dobb=findViewById(R.id.setdob);
         genderr=findViewById(R.id.setgender);
+        summary=findViewById(R.id.preview_summary);
+        degree=findViewById(R.id.setdegree);
+        institute=findViewById(R.id.setinstitution);
+        degreeyear=findViewById(R.id.setgradyear);
+        ref=findViewById(R.id.setref);
+
+        jobtitle=findViewById(R.id.settitle);
+        jobcompany=findViewById(R.id.setcompany);
+        jobduration=findViewById(R.id.setduration);
+        jobdesc=findViewById(R.id.setdesc);
+        certs=findViewById(R.id.setcerts);
+
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +68,42 @@ public class Preview extends AppCompatActivity {
         phone.setText(number);
         dobb.setText(dob);
         genderr.setText(gender);
+
+        String summary_data=i.getStringExtra("user_summary_data");
+        summary.setText(summary_data);
+
+        String dname=i.getStringExtra("degree_name");
+        String inst=i.getStringExtra("institution_name");
+        String dyear=i.getStringExtra("degree_year");
+
+        degree.setText(dname);
+        institute.setText(inst);
+        degreeyear.setText(dyear);
+
+        String title=i.getStringExtra("company_title");
+        String company=i.getStringExtra("company");
+        String duration=i.getStringExtra("company_duration");
+        String desc=i.getStringExtra("desc");
+
+        jobtitle.setText(title);
+        jobcompany.setText(company);
+        jobduration.setText(duration);
+        jobdesc.setText(desc);
+
+        String certifications=i.getStringExtra("certs");
+        certs.setText(certifications);
+
+
+
+        String refer=i.getStringExtra("refs");
+        ref.setText(refer);
+
+
+
+
+
+
+
 
 
 

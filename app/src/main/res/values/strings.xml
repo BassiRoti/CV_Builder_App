@@ -31,4 +31,6 @@
     <string name="google_developer_certification_88985">Google Developer Certification 88985</string>
     <string name="enter_your_references_with_details">Enter your References with details</string>
     <string name="kindly_select_gender">Kindly Select Gender</string>
+    <string name="enter_data_of_birth_yyyy_mm">Enter data of birth YYYY-MM</string>
+    <string name="enter_birth_year">Enter Birth Year</string>
 </resources>
