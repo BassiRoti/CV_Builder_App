@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -39,20 +40,27 @@ public class Experience extends AppCompatActivity {
 
         init();
 
-        String user_title=title.getText().toString().trim();
-        String user_company=company.getText().toString().trim();
-        String user_duration=duration.getText().toString().trim();
-        String user_desc=description.getText().toString().trim();
-        Intent i=new Intent();
-        i.putExtra("title",user_title);
-        i.putExtra("company",user_company);
-        i.putExtra("duration",user_duration);
-        i.putExtra("desc",user_desc);
+
 
 
         submit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String user_title=title.getText().toString().trim();
+                String user_company=company.getText().toString().trim();
+                String user_duration=duration.getText().toString().trim();
+                String user_desc=description.getText().toString().trim();
+                Intent i=new Intent();
+                i.putExtra("title",user_title);
+                i.putExtra("company",user_company);
+                i.putExtra("duration",user_duration);
+                i.putExtra("desc",user_desc);
+
+                if (user_title.isEmpty() || user_company.isEmpty() || user_duration.isEmpty() || user_desc.isEmpty()) {
+                    Toast.makeText(v.getContext(), "Fill in all details or cancel", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 setResult(RESULT_OK,i);
                 finish();
             }

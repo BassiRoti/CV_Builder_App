@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,14 +34,20 @@ public class References extends AppCompatActivity {
         });
 
         init();
-        Intent i=new Intent();
-        String references=ref.getText().toString().trim();
-        i.putExtra("ref",references);
+
 
 
         submit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent i=new Intent();
+                String references=ref.getText().toString().trim();
+                i.putExtra("ref",references);
+
+                if (references.isEmpty()) {
+                    Toast.makeText(v.getContext(), "Enter references or cancel", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 setResult(RESULT_OK,i);
                 finish();
             }

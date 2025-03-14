@@ -38,19 +38,32 @@ public class Education extends AppCompatActivity {
         init();
 
 
-        String user_degree=degree.getText().toString().trim();
-        String user_institution=institution.getText().toString().trim();
-        String user_year=year.getText().toString().trim();
-
-        Intent i=new Intent();
-        i.putExtra("degree",user_degree);
-        i.putExtra("institution",user_institution);
-        i.putExtra("year",user_year);
 
 
         submit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String user_degree=degree.getText().toString().trim();
+                String user_institution=institution.getText().toString().trim();
+                String user_year=year.getText().toString().trim();
+                if (user_degree.isEmpty()) {
+                    Toast.makeText(v.getContext(), "Degree cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (user_institution.isEmpty()) {
+                    Toast.makeText(v.getContext(), "Institution cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (user_year.isEmpty()) {
+                    Toast.makeText(v.getContext(), "Year cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                Intent i=new Intent();
+                i.putExtra("degree",user_degree);
+                i.putExtra("institution",user_institution);
+                i.putExtra("year",user_year);
+
                 setResult(RESULT_OK,i);
                 finish();
             }

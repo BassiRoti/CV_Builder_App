@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,13 +33,18 @@ public class Summary extends AppCompatActivity {
         });
 
         init();
-        String summary_data=summary.getText().toString().trim();
-        Intent i=new Intent();
-        i.putExtra("summ",summary_data);
+
 
         submit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String summary_data=summary.getText().toString().trim();
+                Intent i=new Intent();
+                i.putExtra("summ",summary_data);
+                if (summary_data.isEmpty()) {
+                    Toast.makeText(v.getContext(), "This field is mandatory", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 setResult(RESULT_OK,i);
                 finish();
             }

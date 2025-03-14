@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,14 +34,16 @@ public class Certifications extends AppCompatActivity {
         });
 
         init();
-        String user_certifications=certs.getText().toString().trim();
-
-        Intent i=new Intent();
-        i.putExtra("certifications",user_certifications);
 
         submit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String user_certifications=certs.getText().toString().trim();
+                Intent i=new Intent();
+                i.putExtra("certifications",user_certifications);
+                if(user_certifications.isEmpty()){
+                    Toast.makeText(Certifications.this, "Kindly add certification or choose cancel", Toast.LENGTH_SHORT).show();
+                }
                 setResult(RESULT_OK,i);
                 finish();
             }
