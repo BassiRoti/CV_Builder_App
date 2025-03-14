@@ -131,29 +131,31 @@
         android:layout_marginTop="10dp">
 
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/submit"
-        android:backgroundTint="#950F0F"
-        android:layout_marginTop="10dp"
-        android:id="@+id/submit"
-        >
-    </Button>
-
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/cancel"
-            android:backgroundTint="#950F0F"
+            android:backgroundTint="@color/red"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:id="@+id/clear"
-            android:layout_toRightOf="@id/submit"
             android:layout_marginHorizontal="10dp"
             >
 
         </Button>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"
+        android:backgroundTint="@color/red"
+        android:layout_marginTop="10dp"
+        android:id="@+id/submit"
+        android:layout_toRightOf="@id/clear"
+        >
+    </Button>
+
+
 
 
 

@@ -16,7 +16,6 @@
         android:text="@string/enter_your_cercitications_here_with_valid_id_s"
         android:textSize="20dp"
         android:gravity="center"
-
         android:textColor="@color/white"
         android:textStyle="bold"
 
@@ -48,26 +47,28 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/submit"
-            android:backgroundTint="#950F0F"
-            android:layout_marginTop="10dp"
-            android:id="@+id/cert_submit"
-            >
-        </Button>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="@string/cancel"
             android:backgroundTint="#950F0F"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:id="@+id/cert_clear"
-            android:layout_toRightOf="@id/cert_submit"
             android:layout_marginHorizontal="10dp"
             >
 
         </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/submit"
+            android:backgroundTint="#950F0F"
+            android:layout_marginTop="10dp"
+            android:id="@+id/cert_submit"
+            android:layout_toRightOf="@id/cert_clear"
+            >
+        </Button>
+
+
 
 
 

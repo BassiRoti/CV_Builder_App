@@ -1,10 +1,14 @@
 package com.example.cvbuilder;
 
 import android.content.Intent;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.pdf.PdfDocument;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -12,16 +16,21 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 public class Preview extends AppCompatActivity {
     ImageView img;
     TextView name, email, phone, dobb,genderr, summary, degree, institute, degreeyear, ref;
     TextView jobtitle,jobcompany, jobduration, jobdesc, certs;
 
     LinearLayout jobvisibility, certificationvisibility, refvisibility;
+
+    Button share;
 
     private void init(){
         img=findViewById(R.id.user_profile);
@@ -46,6 +55,8 @@ public class Preview extends AppCompatActivity {
         certificationvisibility=findViewById(R.id.certvisibility);
         refvisibility=findViewById(R.id.refvisibility);
 
+        share=findViewById(R.id.share);
+
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +72,8 @@ public class Preview extends AppCompatActivity {
         Intent i=getIntent();
         String pic=i.getStringExtra("image");
         Uri picc=Uri.parse(pic);
+
+
 
         img.setImageURI(picc);
 
@@ -120,7 +133,17 @@ public class Preview extends AppCompatActivity {
         }
 
 
-
-
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(Intent.ACTION_PICK);
+                i.setType("text");
+                startActivity(i);
+                finish();
+            }
+        });
     }
+
+
+
 }

@@ -4,9 +4,8 @@
     <translate
         android:fromYDelta="-100"
         android:toYDelta="0"
-        android:duration="2000"
-        android:repeatMode="restart"
-        >
-    </translate>
+        android:duration="1500"
+        android:repeatMode="reverse"
+        android:repeatCount="infinite" />
 
 </set>

@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:backgroundTint="@color/black"
     android:background="#F5F5F5">
 
@@ -12,75 +13,76 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Profile Image -->
-        <ImageView
-            android:id="@+id/user_profile"
+        <androidx.cardview.widget.CardView
             android:layout_width="120dp"
             android:layout_height="120dp"
+            android:layout_centerInParent="true"
+            app:cardCornerRadius="80dp"
+            app:cardElevation="4dp"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
-            android:scaleType="centerCrop"
-            android:background="@drawable/circle"
-             />
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:id="@+id/user_profile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="20dp"
             android:layout_marginHorizontal="20dp"
             android:textColor="@color/white"
             android:background="@drawable/radius_blue"
             >
 
-        <!-- Name -->
         <TextView
             android:id="@+id/setname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="8dp"
             android:textSize="22sp"
             android:textStyle="bold"
             android:textColor="@color/black" />
 
-        <!-- Email -->
         <TextView
             android:id="@+id/setemail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="4dp"
             android:textSize="16sp"
             android:textColor="@color/white" />
 
-        <!-- Phone Number -->
         <TextView
             android:id="@+id/setnumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="4dp"
             android:textSize="16sp"
             android:textColor="@color/white" />
 
-        <!-- DOB -->
         <TextView
             android:id="@+id/setdob"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="4dp"
             android:textSize="16sp"
             android:textColor="@color/white" />
 
-        <!-- Gender -->
         <TextView
             android:id="@+id/setgender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="4dp"
             android:textSize="16sp"
             android:textColor="@color/white" />
 
@@ -99,7 +101,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Summary"
+                android:text="@string/summaryy"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:textSize="20dp"
@@ -109,13 +111,11 @@
 
             </TextView>
 
-            <!-- Summary Section -->
             <TextView
                 android:id="@+id/preview_summary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:padding="16dp"
+                android:padding="4dp"
                 android:gravity="center"
                 android:layout_gravity="center"
                 android:textSize="16sp"
@@ -139,7 +139,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Education"
+                android:text="@string/neducation"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:textSize="20dp"
@@ -147,15 +147,11 @@
                 >
             </TextView>
 
-
-
-        <!-- Education Section -->
         <TextView
             android:id="@+id/setdegree"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:padding="8dp"
+            android:padding="4dp"
             android:textSize="16sp"
             android:gravity="center"
             android:layout_gravity="center"
@@ -165,7 +161,7 @@
             android:id="@+id/setinstitution"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
+            android:padding="4dp"
             android:textSize="16sp"
             android:gravity="center"
             android:layout_gravity="center"
@@ -175,7 +171,7 @@
             android:id="@+id/setgradyear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
+            android:padding="4dp"
             android:gravity="center"
             android:layout_gravity="center"
             android:textSize="16sp"
@@ -197,7 +193,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Job Details"
+                android:text="@string/job_details"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:textSize="20dp"
@@ -207,13 +203,11 @@
 
             </TextView>
 
-        <!-- Job Details Section -->
         <TextView
             android:id="@+id/settitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:padding="8dp"
+            android:padding="4dp"
             android:textSize="16sp"
             android:gravity="center"
             android:layout_gravity="center"
@@ -223,7 +217,7 @@
             android:id="@+id/setcompany"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
+            android:padding="4dp"
             android:textSize="16sp"
             android:gravity="center"
             android:layout_gravity="center"
@@ -233,7 +227,7 @@
             android:id="@+id/setduration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
+            android:padding="4dp"
             android:textSize="16sp"
             android:gravity="center"
             android:layout_gravity="center"
@@ -243,7 +237,7 @@
             android:id="@+id/setdesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
+            android:padding="4dp"
             android:textSize="16sp"
             android:gravity="center"
             android:layout_gravity="center"
@@ -267,7 +261,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Certifications"
+                android:text="@string/certificationss"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:textSize="20dp"
@@ -281,7 +275,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:padding="8dp"
+            android:padding="4dp"
             android:textSize="16sp"
             android:layout_marginHorizontal="20dp"
             android:gravity="center"
@@ -303,13 +297,12 @@
            <TextView
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
-               android:text="References"
+               android:text="@string/referencess"
                android:layout_gravity="center"
                android:gravity="center"
                android:textSize="20dp"
                android:textStyle="bold"
                android:textColor="@color/white"
-               android:layout_marginBottom="50dp"
                >
            </TextView>
 
@@ -318,13 +311,26 @@
                android:id="@+id/setref"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
-               android:padding="8dp"
+               android:padding="4dp"
                android:textSize="16sp"
                android:gravity="center"
                android:layout_gravity="center"
                android:textColor="@color/white" />
 
        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/share_cv"
+            android:backgroundTint="@color/red"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:layout_marginVertical="20dp"
+            android:id="@+id/share"
+            >
+
+        </Button>
 
 
     </LinearLayout>

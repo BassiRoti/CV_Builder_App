@@ -33,4 +33,10 @@
     <string name="kindly_select_gender">Kindly Select Gender</string>
     <string name="enter_data_of_birth_yyyy_mm">Enter data of birth YYYY-MM</string>
     <string name="enter_birth_year">Enter Birth Year</string>
+    <string name="summaryy">Summary</string>
+    <string name="neducation">Education</string>
+    <string name="job_details">Job Details</string>
+    <string name="certificationss">Certifications</string>
+    <string name="referencess">References</string>
+    <string name="share_cv">Share CV</string>
 </resources>
