@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +20,8 @@ public class Preview extends AppCompatActivity {
     ImageView img;
     TextView name, email, phone, dobb,genderr, summary, degree, institute, degreeyear, ref;
     TextView jobtitle,jobcompany, jobduration, jobdesc, certs;
+
+    LinearLayout jobvisibility, certificationvisibility, refvisibility;
 
     private void init(){
         img=findViewById(R.id.user_profile);
@@ -37,6 +41,10 @@ public class Preview extends AppCompatActivity {
         jobduration=findViewById(R.id.setduration);
         jobdesc=findViewById(R.id.setdesc);
         certs=findViewById(R.id.setcerts);
+
+        jobvisibility=findViewById(R.id.jobvisibility);
+        certificationvisibility=findViewById(R.id.certvisibility);
+        refvisibility=findViewById(R.id.refvisibility);
 
     }
     @Override
@@ -99,10 +107,17 @@ public class Preview extends AppCompatActivity {
         ref.setText(refer);
 
 
+        if (title == null || title.trim().isEmpty()) {
+            jobvisibility.setVisibility(View.GONE);
+        }
 
+        if (refer == null || refer.trim().isEmpty()) {
+            refvisibility.setVisibility(View.GONE);
+        }
 
-
-
+        if (certifications == null || certifications.trim().isEmpty()) {
+            certificationvisibility.setVisibility(View.GONE);
+        }
 
 
 
