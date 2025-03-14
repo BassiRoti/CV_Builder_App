@@ -3,6 +3,7 @@ package com.example.cvbuilder;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -90,12 +91,20 @@ public class HomeActivity extends AppCompatActivity {
                String User_dob=getdata.getStringExtra("User_dob");
                String UserEmail=getdata.getStringExtra("UserEmail");
                String UserNumber=getdata.getStringExtra("UserNumber");
+               String UserGender=getdata.getStringExtra("Gender");
                //fetched user details
+               Toast.makeText(this, "Passing data", Toast.LENGTH_SHORT).show();
 
                transition.putExtra("UserName",UserName);
                transition.putExtra("User_dob",User_dob);
                transition.putExtra("UserEmail",UserEmail);
                transition.putExtra("UserNumber",UserNumber);
+               transition.putExtra("UserGender",UserGender);
+
+               Log.d("DEBUG", "UserName: " + UserName);
+               Log.d("DEBUG", "User_dob: " + User_dob);
+               Log.d("DEBUG", "UserEmail: " + UserEmail);
+               Log.d("DEBUG", "UserNumber: " + UserNumber);
 
            }
            else{
@@ -223,6 +232,7 @@ public class HomeActivity extends AppCompatActivity {
         final_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("DEBUG", "Intent Data: " + transition.getExtras());
                 startActivity(transition);
                 finish();
             }

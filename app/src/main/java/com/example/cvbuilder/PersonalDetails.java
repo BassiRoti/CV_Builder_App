@@ -32,32 +32,53 @@ public class PersonalDetails extends AppCompatActivity {
         });
 
         init();
-        String UserName=name.getText().toString().trim();
-        String User_dob=dob.getText().toString().trim();
-        String UserEmail=email.getText().toString().trim();
-        String UserNumber=number.getText().toString().trim();
 
-        int garbage=rgrp.getCheckedRadioButtonId();
-        String gender="";
-        if(garbage!=-1) {
-            RadioButton btn = findViewById(garbage);
-            gender = btn.getText().toString().trim();
-        }
-        else{
-           // Toast.makeText(this, "Kindly Select Gender", Toast.LENGTH_SHORT).show();
-        }
-        Intent i=new Intent();
-        i.putExtra("UserName",UserName);
-        i.putExtra("User_dob",User_dob);
-        i.putExtra("UserEmail",UserEmail);
-        i.putExtra("UserNumber",UserNumber);
-        i.putExtra("Gender",gender);
 
 
 
         submit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String UserName=name.getText().toString().trim();
+                String User_dob=dob.getText().toString().trim();
+                String UserEmail=email.getText().toString().trim();
+                String UserNumber=number.getText().toString().trim();
+
+                if (UserName.isEmpty()) {
+                    Toast.makeText(v.getContext(), "Name cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (User_dob.isEmpty()) {
+                    Toast.makeText(v.getContext(), "Date of Birth cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (UserEmail.isEmpty()) {
+                    Toast.makeText(v.getContext(), "Email cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (UserNumber.isEmpty()) {
+                    Toast.makeText(v.getContext(), "Number cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                int garbage=rgrp.getCheckedRadioButtonId();
+                String gender="";
+                if(garbage!=-1) {
+                    RadioButton btn = findViewById(garbage);
+                    gender = btn.getText().toString().trim();
+                }
+                else{
+                    Toast.makeText(v.getContext(), R.string.kindly_select_gender, Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                Intent i=new Intent();
+                i.putExtra("UserName",UserName);
+                i.putExtra("User_dob",User_dob);
+                i.putExtra("UserEmail",UserEmail);
+                i.putExtra("UserNumber",UserNumber);
+                i.putExtra("Gender",gender);
+
                 setResult(RESULT_OK,i);
                 finish();
             }
