@@ -60,6 +60,22 @@ public class PersonalDetails extends AppCompatActivity {
                     Toast.makeText(v.getContext(), "Number cannot be empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if(UserName.length()<4){
+                    Toast.makeText(PersonalDetails.this, "Username length should be atleast 4", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(User_dob.length()!=4){
+                    Toast.makeText(PersonalDetails.this, "Enter valid year", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(!UserEmail.contains("@")){
+                    Toast.makeText(PersonalDetails.this, "Enter valid email", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(UserNumber.length()!=11){
+                    Toast.makeText(PersonalDetails.this, "Enter valid number", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 int garbage=rgrp.getCheckedRadioButtonId();
                 String gender="";

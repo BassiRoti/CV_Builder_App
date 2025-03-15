@@ -45,6 +45,10 @@ public class Summary extends AppCompatActivity {
                     Toast.makeText(v.getContext(), "This field is mandatory", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if(summary_data.length()<20){
+                    Toast.makeText(Summary.this, "Write more", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 setResult(RESULT_OK,i);
                 finish();
             }

@@ -60,6 +60,9 @@ public class Experience extends AppCompatActivity {
                     Toast.makeText(v.getContext(), "Fill in all details or cancel", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if(user_title.length()<3 || user_company.length()<3 || user_desc.length()<9){
+                    Toast.makeText(Experience.this, "Enter Valid Fields", Toast.LENGTH_SHORT).show();
+                }
 
                 setResult(RESULT_OK,i);
                 finish();

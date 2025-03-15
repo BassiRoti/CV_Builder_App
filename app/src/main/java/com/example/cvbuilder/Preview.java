@@ -15,6 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 import androidx.core.graphics.Insets;
@@ -31,7 +33,9 @@ public class Preview extends AppCompatActivity {
     LinearLayout jobvisibility, certificationvisibility, refvisibility;
 
     Button share;
+    ActivityResultLauncher<Intent> shareact;
 
+    public static StringBuilder garbage = new StringBuilder("");
     private void init(){
         img=findViewById(R.id.user_profile);
         name=findViewById(R.id.setname);
@@ -75,6 +79,8 @@ public class Preview extends AppCompatActivity {
 
 
 
+
+
         img.setImageURI(picc);
 
 
@@ -90,8 +96,15 @@ public class Preview extends AppCompatActivity {
         dobb.setText(dob);
         genderr.setText(gender);
 
+        garbage.append(username);
+        garbage.append(Email);
+        garbage.append(number);
+        garbage.append(dob);
+        garbage.append(gender);
+
         String summary_data=i.getStringExtra("user_summary_data");
         summary.setText(summary_data);
+        garbage.append(summary_data);
 
         String dname=i.getStringExtra("degree_name");
         String inst=i.getStringExtra("institution_name");
@@ -100,6 +113,9 @@ public class Preview extends AppCompatActivity {
         degree.setText(dname);
         institute.setText(inst);
         degreeyear.setText(dyear);
+        garbage.append(dname);
+        garbage.append(inst);
+        garbage.append(dyear);
 
         String title=i.getStringExtra("company_title");
         String company=i.getStringExtra("company");
@@ -110,14 +126,20 @@ public class Preview extends AppCompatActivity {
         jobcompany.setText(company);
         jobduration.setText(duration);
         jobdesc.setText(desc);
+        garbage.append(title);
+        garbage.append(company);
+        garbage.append(duration);
+        garbage.append(desc);
 
         String certifications=i.getStringExtra("certs");
         certs.setText(certifications);
+        garbage.append(certifications);
 
 
 
         String refer=i.getStringExtra("refs");
         ref.setText(refer);
+        garbage.append(refer);
 
 
         if (title == null || title.trim().isEmpty()) {
@@ -136,10 +158,19 @@ public class Preview extends AppCompatActivity {
         share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Intent.ACTION_PICK);
-                i.setType("text");
-                startActivity(i);
-                finish();
+                Intent i=new Intent(Intent.ACTION_SEND);
+                i.setType("text/plain");
+                i.putExtra(Intent.EXTRA_TEXT, (CharSequence) garbage);
+                shareact.launch(i);
+            }
+        });
+
+        shareact=registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),(result)->{
+            if(result.getResultCode()==RESULT_OK){
+                Toast.makeText(this, "shared successfully", Toast.LENGTH_SHORT).show();
+            }
+            else{
+                Toast.makeText(this, "Share action cancelled", Toast.LENGTH_SHORT).show();
             }
         });
     }

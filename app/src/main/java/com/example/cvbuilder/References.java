@@ -48,6 +48,10 @@ public class References extends AppCompatActivity {
                     Toast.makeText(v.getContext(), "Enter references or cancel", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if(references.length()<5){
+                    Toast.makeText(References.this, "Enter valid reference", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 setResult(RESULT_OK,i);
                 finish();
             }

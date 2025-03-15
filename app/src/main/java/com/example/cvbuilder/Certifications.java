@@ -44,6 +44,10 @@ public class Certifications extends AppCompatActivity {
                 if(user_certifications.isEmpty()){
                     Toast.makeText(Certifications.this, "Kindly add certification or choose cancel", Toast.LENGTH_SHORT).show();
                 }
+                if(user_certifications.length()<5){
+                    Toast.makeText(Certifications.this, "Enter valid certification", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 setResult(RESULT_OK,i);
                 finish();
             }

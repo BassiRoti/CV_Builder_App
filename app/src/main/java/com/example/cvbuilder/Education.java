@@ -59,6 +59,19 @@ public class Education extends AppCompatActivity {
                     return;
                 }
 
+                if(user_degree.length()<3){
+                    Toast.makeText(Education.this, "Enter valid degree", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(user_institution.length()<3){
+                    Toast.makeText(Education.this, "Enter valid institute", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(user_year.length()!=4){
+                    Toast.makeText(Education.this, "Enter valid year", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 Intent i=new Intent();
                 i.putExtra("degree",user_degree);
                 i.putExtra("institution",user_institution);
